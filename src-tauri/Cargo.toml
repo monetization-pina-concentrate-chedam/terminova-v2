@@ -1,0 +1,29 @@
+[package]
+name = "terminova-v2"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.4", features = [] }
+
+[dependencies]
+tauri = { version = "1.4", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+futures = "0.3.28"
+interprocess = {version="1.2.1", features=["signals", "tokio_support"]}
+tokio = {version="1.32.0", features = ["full"]}
+anyhow = {version="1.0.75"}
+to_method = "1.1"
+color-eyre = "0.6.2"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
